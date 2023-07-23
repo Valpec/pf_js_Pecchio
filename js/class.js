@@ -9,10 +9,8 @@ class Producto {
     }
 }
 
-// async function pedirProdsDeCatalogo() {}
-
 const pedirProdsDeCatalogo = async () => {
-    const res = await fetch(`../productos.json`)
+    const res = await fetch(`productos.json`)
     const info = await res.json()
     for(let prod of info){
         let prodInfo = new Producto(prod.id, prod.categoria, prod.nombre, prod.precio, prod.imagen, prod.cantidad)

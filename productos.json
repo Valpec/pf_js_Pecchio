@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "categoria": "Vela",
+        "nombre": "Vela Copon",
+        "precio": 3500,
+        "imagen": "vela_copon.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 2,
+        "categoria": "Vela",
+        "nombre": "Vela Alba",
+        "precio": 3700,
+        "imagen": "vela_alba.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 3,
+        "categoria": "Vela",
+        "nombre": "Vela Bir",
+        "precio": 3000,
+        "imagen": "vela_bir.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 4,
+        "categoria": "Vela",
+        "nombre": "Vela Esfera",
+        "precio": 3000,
+        "imagen": "vela_esfera.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 5,
+        "categoria": "Vela",
+        "nombre": "Vela Hexa",
+        "precio": 3500,
+        "imagen": "vela_hexa.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 6,
+        "categoria": "Vela",
+        "nombre": "Vela Ren",
+        "precio": 2800,
+        "imagen": "vela_ren.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 7,
+        "categoria": "Esencia",
+        "nombre": "Aromatizador Rita",
+        "precio": 3000,
+        "imagen": "esencia.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 8,
+        "categoria": "Esencia",
+        "nombre": "Aromatizador Diana",
+        "precio": 2800,
+        "imagen": "esencia_carrousel.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 9,
+        "categoria": "Esencia",
+        "nombre": "Esencia Solida",
+        "precio": 1900,
+        "imagen": "esencia_solida.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 10,
+        "categoria": "Textil",
+        "nombre": "Almohadon a rayas ",
+        "precio": 1700,
+        "imagen": "almohadones_ray.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 11,
+        "categoria": "Textil",
+        "nombre": "Camino de mesa",
+        "precio": 2000,
+        "imagen": "camino_mesa.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 12,
+        "categoria": "Textil",
+        "nombre": "Repasador panal",
+        "precio": 1500,
+        "imagen": "repasadores.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 13,
+        "categoria": "Decoracion",
+        "nombre": "Colgante Corazon",
+        "precio": 1000,
+        "imagen": "colg_cora.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 14,
+        "categoria": "Decoracion",
+        "nombre": "Colgante Flor",
+        "precio": 1000,
+        "imagen": "colg_flor.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 15,
+        "categoria": "Decoracion",
+        "nombre": "Ramo de flores de tela",
+        "precio": 1500,
+        "imagen": "flores_tela.jpg",
+        "cantidad": 1
+    }
+]

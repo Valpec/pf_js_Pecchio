@@ -1,0 +1,199 @@
+.bgBeige {
+  background-color: #E7D7C9;
+}
+
+.bgMarron {
+  background-color: #A38F85;
+}
+
+.bgRosa {
+  background-color: #D4B2A7;
+}
+
+.bgHueso {
+  background-color: #EDE9E3;
+}
+
+.bgGris {
+  background-color: #CDC6C3;
+}
+
+.bgHuesoTrans {
+  background-color: rgba(237, 233, 227, 0.95);
+}
+
+.navbar {
+  z-index: 1000;
+}
+.navbar-collapse{
+  padding-left: 8rem;
+}
+.logoHeader {
+  max-width: 180px;
+}
+
+.icono {
+  max-width: 30px;
+}
+
+a {
+  color: #212529;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #A38F85;
+}
+
+.btn-light {
+  border: #212529;
+  background-color: #EDE9E3;
+}
+
+.btn-light:hover {
+  color: #212529;
+  background-color: #CDC6C3;
+}
+
+.btn-light a:hover {
+  color: #212529;
+}
+
+#bgVelaVidrio {
+  background: url(../img/productos/velas_caramelera_rosa.jpeg) no-repeat center center fixed;
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-size: cover;
+}
+
+#bgVelaVidrio .textoFondoVidrio {
+  color: #A38F85;
+  padding: 12rem 0;
+  font-family: "playfair";
+}
+
+.itemCatalogo {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5rem;
+  cursor: pointer;
+}
+
+.itemCatalogo img {
+  max-width: 8rem;
+}
+
+.precioItem {
+  padding-top: .5rem;
+}
+
+.catItem {
+  color: #A38F85;
+}
+
+.btnAgregarACarrito:active>img {
+  animation: ease-in 0.5s;
+  transform: translateY(-10px) rotate(0.10turn);
+}
+
+.itemCarrito {
+  max-width: 5rem;
+}
+
+.navProductos {
+  position: sticky;
+  top: 6.7rem;
+  flex-wrap: wrap;
+  z-index: 500;
+}
+
+.navProductos .nav .nav-link {
+  color: #212529;
+}
+
+.navProductos .nav :hover {
+  color: #E7D7C9;
+}
+
+.valorCantidad::-webkit-outer-spin-button,
+.valorCantidad::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.valorCantidad {
+  border: none;
+  border-bottom: solid 0.5px;
+  outline: none;
+  background-color: transparent;
+  max-width: 2rem;
+}
+
+.imgBorrarProd {
+  position: rela;
+  max-width: 20px;
+  top: 0px;
+}
+
+.imgBorrarProd:hover{
+  cursor: pointer;
+}
+
+.sideCarrito {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: #EDE9E3;
+  z-index: 1500;
+  overflow-y: auto;
+  transform: translateX(100%);
+  box-shadow: -5px 0 10px #A38F85;
+  transition: ease-in-out .7s;
+}
+.sideCarrito.open{
+  transform: translateX(0);
+}
+.headerCarrito{
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px #A38F85;
+}
+#cerrarCarrito:hover{
+  cursor: pointer;
+}
+.btn-compra{
+  background-color: #D4B2A7;
+}
+.btn-compra:hover{
+  background-color:#EAC9C1;
+}
+
+ #cantProdsCarrito{
+  position: absolute;
+  top: 1rem;
+  right: 2rem; 
+  width: 20px;
+  height: 20px;
+  background-color: #D4B2A7;
+  border-radius: 50%;
+  color: #212529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.footerCarrito{
+  position: fixed;
+  bottom: 1.5rem;
+}
+
+
+
+@media (min-width: 1024px) {
+  .itemCatalogo img {
+    max-width: 300px;
+  }
+}

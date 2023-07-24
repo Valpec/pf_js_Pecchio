@@ -90,7 +90,6 @@ function mostrarCatalogo(array) {
 
 
 function agregarAlCarrito(producto) {
-    // let indiceProdAgregado = carrito.indexOf((elem) => elem.id == prod.id)
     let prodAgregado = carrito.find((elem) => elem.id == producto.id)
     let indice = carrito.indexOf(prodAgregado)
     if (indice < 0) {
@@ -140,10 +139,10 @@ function cargarProdsCarrito(array) {
                                             </div>
                                         </div>`
 
-        calcularTotal(array)
-        calcularCantidadProdsCarrito(carrito)
+        
     }
-
+    calcularTotal(array)
+    calcularCantidadProdsCarrito(carrito)
     // para SUMAR prods en carrito 
     for (let prod of array) {
         let sumaParaCarrito = document.getElementById(`sumaProd${prod.id}`)
@@ -168,7 +167,7 @@ function cargarProdsCarrito(array) {
     for (let prod of array) {
         let inputCantidad = document.getElementById(`valorCantidad${prod.id}`)
         inputCantidad.addEventListener("focusout", () => {
-            inputCantidadProductos(prod, "inputCantidad")
+            inputCantidadProductos(prod, inputCantidad)
             cargarProdsCarrito(array)
             localStorage.setItem("carrito", JSON.stringify(array))
 
@@ -260,9 +259,9 @@ function confirmarCompra(array) {
             confirmButtonColor: `#D4B2A7`
         })
         // vaciar carrito
-        array = []
+        carrito = []
         localStorage.removeItem("carrito")
-        cargarProdsCarrito(array)
+        cargarProdsCarrito(carrito)
     }
 }
 

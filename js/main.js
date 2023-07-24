@@ -94,21 +94,18 @@ function agregarAlCarrito(producto) {
     let prodAgregado = carrito.find((elem) => elem.id == producto.id)
     let indice = carrito.indexOf(prodAgregado)
     if (indice < 0) {
-        carrito.push(producto)
-        console.log(`se pusheo a carrito `)
+        // se pushea al producto de esta manera, para que no siga haciendo referencia al mismo objeto y se pueda modificar el array de carrito sin alterar al original
+        carrito.push(JSON.parse(JSON.stringify(producto)))
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
     else if (indice >= 0 && (carrito[indice].cantidad + producto.cantidad) < 200) {
-        console.log(`producto en carrito:${carrito[indice].cantidad}, ${carrito[indice].nombre}`)
         carrito[indice].cantidad = carrito[indice].cantidad + producto.cantidad
-        console.log(`cantidad del producto de catalogo: ${producto.cantidad},\ncantidad del producto en carrito: ${carrito[indice].cantidad}`)
     }
     else {
         carrito[indice].cantidad = 200
     }
     cargarProdsCarrito(carrito)
     localStorage.setItem("carrito", JSON.stringify(carrito))
-    // producto.cantidad = 1
 }
 
 // funcion que calcula la cantidad de prods en carrito, para mostrarlo sobre el carrito 

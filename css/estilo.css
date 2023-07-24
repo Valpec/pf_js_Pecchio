@@ -190,7 +190,9 @@ a:hover {
   bottom: 1.5rem;
 }
 
-
+.swal2-bottom-right{
+  z-index: 2000;
+}
 
 @media (min-width: 1024px) {
   .itemCatalogo img {

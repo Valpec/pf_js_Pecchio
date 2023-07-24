@@ -7,6 +7,9 @@ class Producto {
             this.imagen = imagen, 
             this.cantidad = 1
     }
+    mostrarProducto(){
+        console.log(`${this.cantidad}`)
+    }
 }
 
 const pedirProdsDeCatalogo = async () => {
@@ -16,6 +19,7 @@ const pedirProdsDeCatalogo = async () => {
         let prodInfo = new Producto(prod.id, prod.categoria, prod.nombre, prod.precio, prod.imagen, prod.cantidad)
         catalogo.push(prodInfo)
     }
+    mostrarCatalogo(catalogo)
     localStorage.setItem("catalogo", JSON.stringify(catalogo))
 }
     

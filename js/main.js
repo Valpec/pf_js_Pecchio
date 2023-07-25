@@ -59,9 +59,10 @@ function mostrarCatalogo(array) {
         // DOM del boton para agregar a carrito de cada producto
         let agregACarr = document.getElementById(`agrCarr${prod.id}`)
         agregACarr.addEventListener("click", () => {
-            console.log(`se agrega al carrito la cantidad de producto ${prod.cantidad}`)
             agregarAlCarrito(prod)
+            // reseteo la cantidad de cada producto
             prod.cantidad = 1
+            // modifico en el dom la cantidad que figura en el input
             inputCatalogo.value = prod.cantidad
         })
 
@@ -88,16 +89,17 @@ function mostrarCatalogo(array) {
 }
 
 
-
 function agregarAlCarrito(producto) {
     let prodAgregado = carrito.find((elem) => elem.id == producto.id)
     let indice = carrito.indexOf(prodAgregado)
+    // si el indice es -1, es porque no existe el prodcuto en carrito, asi que se lo agrega
     if (indice < 0) {
         // se pushea al producto de esta manera, para que no siga haciendo referencia al mismo objeto y se pueda modificar el array de carrito sin alterar al original
         carrito.push(JSON.parse(JSON.stringify(producto)))
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
-    else if (indice >= 0 && (carrito[indice].cantidad + producto.cantidad) < 200) {
+    // si el indice es positivo, es porque existe el producto en carrito. Se verifica que la suma de las cantidades no supere el limite posible
+    else if (indice >= 0 && (carrito[indice].cantidad + producto.cantidad) <= 200) {
         carrito[indice].cantidad = carrito[indice].cantidad + producto.cantidad
     }
     else {
@@ -107,6 +109,7 @@ function agregarAlCarrito(producto) {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
+
 // funcion que calcula la cantidad de prods en carrito, para mostrarlo sobre el carrito 
 function calcularCantidadProdsCarrito(array) {
     let cantidad = array.reduce((acc, prodEnCarrito) => acc + prodEnCarrito.cantidad, 0)
@@ -115,8 +118,11 @@ function calcularCantidadProdsCarrito(array) {
         indicadorCantProdsCarrito.innerHTML = `+200`
     }
 }
+
+
 // funcion que agrega al dom los productos seleccionados
 function cargarProdsCarrito(array) {
+    // le agrego la clase open al html para que se abra el carrito
     sideCarrito.classList.add(`open`)
     bodyCarrito.innerHTML = ``
     for (let prod of array) {
@@ -137,12 +143,11 @@ function cargarProdsCarrito(array) {
                                                 <img id="borrarProd${prod.id}" class="imgBorrarProd img-fluid" src="img/icons/trash_can.png" alt="">
                                                 <h6 class="my-3 "> $${prod.precio * prod.cantidad} </h6>
                                             </div>
-                                        </div>`
-
-        
+                                        </div>`        
     }
     calcularTotal(array)
     calcularCantidadProdsCarrito(carrito)
+
     // para SUMAR prods en carrito 
     for (let prod of array) {
         let sumaParaCarrito = document.getElementById(`sumaProd${prod.id}`)
@@ -150,7 +155,6 @@ function cargarProdsCarrito(array) {
             sumarCantidadDeProductos(prod)
             cargarProdsCarrito(array)
             localStorage.setItem("carrito", JSON.stringify(array))
-
         })
     }
     // para RESTAR prods en carrito
@@ -160,7 +164,6 @@ function cargarProdsCarrito(array) {
             restarCantidadDeProductos(prod)
             cargarProdsCarrito(array)
             localStorage.setItem("carrito", JSON.stringify(array))
-
         })
     }
     // para INPUTS de prods en carrito
@@ -170,22 +173,20 @@ function cargarProdsCarrito(array) {
             inputCantidadProductos(prod, inputCantidad)
             cargarProdsCarrito(array)
             localStorage.setItem("carrito", JSON.stringify(array))
-
         })
     }
-
-
     // para ELIMINAR prods del carrito
     for (let prod of array) {
         document.getElementById(`borrarProd${prod.id}`).addEventListener("click", () => {
             let itemCarrito = document.getElementById(`productoCarrito${prod.id}`)
+            //elimino el card del html
             itemCarrito.remove()
             let prodAEliminar = array.find((prod) => prod.id == carrito.id)
-
             let posicion = array.indexOf(prodAEliminar)
+            // elimino del array carrito el prodcuto con el indice obtenido
             array.splice(posicion, 1)
-            calcularCantidadProdsCarrito(carrito)
             // vuelvo a llamar la funcion de calcular total porque en suma y resta, la misma funcion de cargar prods en carrito ya la llamaba
+            calcularCantidadProdsCarrito(carrito)
             calcularTotal(array)
             localStorage.setItem("carrito", JSON.stringify(array))
 
@@ -193,14 +194,15 @@ function cargarProdsCarrito(array) {
     }
 }
 
+
 function sumarCantidadDeProductos(prod) {
     prod.cantidad += 1
     // para que no se puedan agregar mas de 200 elementos. 
     if (prod.cantidad > 200) {
         prod.cantidad = 200
     }
-
 }
+
 function restarCantidadDeProductos(prod) {
     prod.cantidad -= 1
     // para que no se pueda poner elemenots en negativo, pero que si lo queire eliminar, que lo haga con el boton. 
@@ -235,6 +237,7 @@ function calcularTotal(array) {
 function cerrarCarrito() {
     sideCarrito.classList.remove(`open`)
 }
+
 
 function confirmarCompra(array) {
     if (array.length == 0) {
